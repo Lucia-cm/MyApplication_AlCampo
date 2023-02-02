@@ -12,9 +12,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Adapter_All_Products extends BaseAdapter {
-    Context context;
-    ArrayList<Product>data;
+    private  Context context;
+    private ArrayList<Product>data;
 
+    private int R_layout_idView;
+
+    public  Adapter_All_Products(Context context,int R_layout_idView,ArrayList<Product> data){
+        super();
+        this.context=context;
+        this.R_layout_idView=R_layout_idView;
+        this.data=data;
+
+    }
     @Override
     public int getCount() {
         return data.size();
@@ -48,6 +57,18 @@ public class Adapter_All_Products extends BaseAdapter {
         RatingBar valuation=(RatingBar) product.findViewById(R.id.valuation_product);
         valuation.setRating(data.get(position).getValuation());
 
+        if(product==null){
+            LayoutInflater vi=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            product=vi.inflate(R_layout_idView,null);
+
+        }
+        onEntrada(data.get(position),product);
+
         return product;
     }
+
+    private void onEntrada(Product product, View product1) {
+    }
+
+
 }

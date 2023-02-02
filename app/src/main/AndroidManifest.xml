@@ -20,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity_categories"/>
+        <activity android:name=".MainActivity_products"/>
+        <activity android:name=".MainActivity_final"/>
+
     </application>
 
 </manifest>
