@@ -2,6 +2,7 @@ package com.example.myapplication_alcampo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
@@ -9,13 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class MainActivity_categories extends AppCompatActivity {
+public class MainActivity_categories02 extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_product_of_category);
 
-        Intent new_intent=new Intent(MainActivity_categories.this, MainActivity_product.class);
+        Intent new_intent=new Intent(MainActivity_categories02.this, MainActivity_product.class);
 
         GridView list=(GridView) findViewById(R.id.list_products);
 
@@ -31,8 +32,9 @@ public class MainActivity_categories extends AppCompatActivity {
 
         ArrayAdapter<Product>adapter=new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, products_decoration);
-        list.setAdapter(new Adapter_All_Products(this,R.layout.product,products_decoration){
 
+        list.setAdapter(new Adapter_All_Products(this,R.layout.product,products_decoration){
+            public void onEntrada(Object entrada, View view){}
         });
 
 

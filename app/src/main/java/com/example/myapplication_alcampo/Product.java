@@ -20,27 +20,23 @@ public class Product {
         this.description = description;
     }
 
-    public Product(int id, int image, String name, String brand, String price, float valuation) {
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
         this.id = id;
-        this.image = image;
-        this.name = name;
-        this.brand = brand;
-        this.price = price;
-        this.valuation = valuation;
     }
 
-    public Product(int image, String name, String brand, String price, float valuation) {
-        this.image = image;
-        this.name = name;
-        this.brand = brand;
-        this.price = price;
-        this.valuation = valuation;
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getImage() {
         return image;
     }
-
     public void setImage(int image) {
         this.image = image;
     }
@@ -48,7 +44,6 @@ public class Product {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -56,7 +51,6 @@ public class Product {
     public String getBrand() {
         return brand;
     }
-
     public void setBrand(String brand) {
         this.brand = brand;
     }
@@ -64,7 +58,6 @@ public class Product {
     public String getPrice() {
         return price;
     }
-
     public void setPrice(String price) {
         this.price = price;
     }
@@ -72,7 +65,6 @@ public class Product {
     public float getValuation() {
         return valuation;
     }
-
     public void setValuation(float valuation) {
         this.valuation = valuation;
     }

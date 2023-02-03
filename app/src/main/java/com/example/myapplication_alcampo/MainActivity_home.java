@@ -1,17 +1,16 @@
 package com.example.myapplication_alcampo;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
-
 public class MainActivity_home extends AppCompatActivity {
-    CardView toys;
-    CardView decoration;
+    LinearLayout toys;
+    LinearLayout decoration;
     CardView playgames;
     CardView books;
     @Override
@@ -22,8 +21,8 @@ public class MainActivity_home extends AppCompatActivity {
         Intent intent_products_categories=new Intent(MainActivity_home.this, MainActivity_categories.class);
         Intent intent_final=new Intent(MainActivity_home.this, MainActivity_final.class);
 
-        toys=(CardView) findViewById(R.id.option_toys);
-        decoration=(CardView) findViewById(R.id.option_decoration);
+        toys=(LinearLayout) findViewById(R.id.option_toys);
+        decoration=(LinearLayout) findViewById(R.id.option_decoration);
 
         toys.setOnClickListener(new View.OnClickListener() {
             @Override
