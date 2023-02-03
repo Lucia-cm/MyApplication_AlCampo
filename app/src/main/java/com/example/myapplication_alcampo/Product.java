@@ -1,11 +1,33 @@
 package com.example.myapplication_alcampo;
 
 public class Product {
+    int id;
     int image;
     String name;
     String brand;
     String price;
     float valuation;
+
+    String description;
+
+    public Product(int id, int image, String name, String brand, String price, float valuation, String description) {
+        this.id = id;
+        this.image = image;
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+        this.valuation = valuation;
+        this.description = description;
+    }
+
+    public Product(int id, int image, String name, String brand, String price, float valuation) {
+        this.id = id;
+        this.image = image;
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+        this.valuation = valuation;
+    }
 
     public Product(int image, String name, String brand, String price, float valuation) {
         this.image = image;
