@@ -18,10 +18,12 @@ import java.util.ArrayList;
 
 public class MainActivity_products_of_categories_playgames extends AppCompatActivity {
     CardView cardView;
-    TextView name;
+    TextView name_category;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_product_of_category);
+        name_category=(TextView)findViewById(R.id.categoryTitle);
+        name_category.setText("Videojuegos");
 
         //Intent new_intent=new Intent(MainActivity_products_of_categories_playgames.this, MainActivity_product02.class);
 

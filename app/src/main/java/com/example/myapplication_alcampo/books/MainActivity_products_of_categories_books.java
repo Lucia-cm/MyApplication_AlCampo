@@ -2,15 +2,18 @@ package com.example.myapplication_alcampo.books;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.example.myapplication_alcampo.Adapter_All_Products;
-import com.example.myapplication_alcampo.MainActivity_product02;
+import com.example.myapplication_alcampo.MainActivity_home;
 import com.example.myapplication_alcampo.Product;
 import com.example.myapplication_alcampo.R;
 
@@ -18,12 +21,36 @@ import java.util.ArrayList;
 
 public class MainActivity_products_of_categories_books extends AppCompatActivity {
     CardView cardView;
-    TextView name;
+    TextView name_category;
+    Toolbar toolbar;
+    ImageButton auchan;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_product_of_category);
 
-        //Intent new_intent=new Intent(MainActivity_products_of_categories_books.this, MainActivity_product02.class);
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        auchan=(ImageButton)findViewById(R.id.imageButton);
+
+        name_category=(TextView)findViewById(R.id.categoryTitle);
+        name_category.setText("Libros");
+
+        Intent go_home=new Intent(MainActivity_products_of_categories_books.this, MainActivity_home.class);
+
+        auchan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(go_home);
+            }
+        });
+        /*setSupportActionBar(binding.toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(go_home);
+            }
+        });*/
+
+
 
         GridView list=(GridView) findViewById(R.id.list_products);
 
@@ -42,6 +69,35 @@ public class MainActivity_products_of_categories_books extends AppCompatActivity
         list.setAdapter(new Adapter_All_Products(this,R.layout.product,products_books){
 
         });
+
+
+
+     /*   public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.go_home:
+                startActivity(go_home);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
+}
+}*/
+
+
+
+
+
+
 
     }
 }
