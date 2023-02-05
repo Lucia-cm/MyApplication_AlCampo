@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class Adapter_Description_Products extends BaseAdapter {
     private  Context context;
     private ArrayList<Product>data;
-
     private int R_layout_idView;
 
     public Adapter_Description_Products(Context context, int R_layout_idView, ArrayList<Product> data){
@@ -22,7 +21,6 @@ public class Adapter_Description_Products extends BaseAdapter {
         this.context=context;
         this.R_layout_idView=R_layout_idView;
         this.data=data;
-
     }
     @Override
     public int getCount() {
@@ -54,13 +52,11 @@ public class Adapter_Description_Products extends BaseAdapter {
         TextView price=(TextView) description_product.findViewById(R.id.description_price);
         price.setText(data.get(position).getPrice()+"€");
         TextView description=(TextView) description_product.findViewById(R.id.description_description);
-        price.setText(data.get(position).getDescription());
-
+        description.setText(data.get(position).getDescription());
 
         if(description_product==null){
             LayoutInflater vi=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             description_product=vi.inflate(R_layout_idView,null);
-
         }
         onEntrada(data.get(position),description_product);
 

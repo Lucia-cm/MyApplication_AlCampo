@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class Adapter_All_Products extends BaseAdapter {
     private  Context context;
     private ArrayList<Product>data;
-
     private int R_layout_idView;
 
     public  Adapter_All_Products(Context context,int R_layout_idView,ArrayList<Product> data){
@@ -22,7 +21,6 @@ public class Adapter_All_Products extends BaseAdapter {
         this.context=context;
         this.R_layout_idView=R_layout_idView;
         this.data=data;
-
     }
     @Override
     public int getCount() {
@@ -67,7 +65,8 @@ public class Adapter_All_Products extends BaseAdapter {
         return product;
     }
 
-    private void onEntrada(Product product, View product1) {
+    public void onEntrada(Object entrada, View view) {
+
     }
 
 

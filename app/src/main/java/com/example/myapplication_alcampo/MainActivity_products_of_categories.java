@@ -4,18 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import java.util.ArrayList;
 
-public class MainActivity_categories extends AppCompatActivity {
-
+public class MainActivity_products_of_categories extends AppCompatActivity {
+    CardView cardView;
+    TextView name;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_product_of_category);
 
-        Intent new_intent=new Intent(MainActivity_categories.this, MainActivity_product.class);
+        Intent new_intent=new Intent(MainActivity_products_of_categories.this, MainActivity_product02.class);
 
         GridView list=(GridView) findViewById(R.id.list_products);
 
@@ -33,9 +36,19 @@ public class MainActivity_categories extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, products_decoration);
         list.setAdapter(new Adapter_All_Products(this,R.layout.product,products_decoration){
 
+            /*public void onEntrada(Object entrada, View view) {
+                cardView = (CardView) findViewById(R.id.one);
+                name = (TextView) findViewById(R.id.name_product);
+
+                cardView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity_categories.this,
+                                name.getText(), Toast.LENGTH_LONG);
+                    }
+                });
+            }*/
         });
-
-
 
     }
 }

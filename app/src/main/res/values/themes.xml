@@ -14,4 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/allerta</item>
     </style>
+    <style name="Theme.AlCampo_AC.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.AlCampo_AC.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

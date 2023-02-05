@@ -9,7 +9,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication_AlCampo"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity_home"
@@ -21,9 +21,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity_categories"/>
-        <activity android:name=".MainActivity_product"/>
-        <activity android:name=".MainActivity_final"/>
+        <activity android:name=".MainActivity_products_of_categories"/>
+        <activity android:name=".MainActivity_product02"/>
+        <activity android:name=".MainActivity_congratulations_final"/>
+
+        <activity android:name=".toys.MainActivity_products_of_categories_toys"/>
+        <activity android:name=".decoration.MainActivity_products_of_categories_decoration"/>
+        <activity android:name=".playgames.MainActivity_products_of_categories_playgames"/>
+        <activity android:name=".books.MainActivity_products_of_categories_books"/>
 
     </application>
 
