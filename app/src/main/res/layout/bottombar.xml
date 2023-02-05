@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.bottomnavigation.BottomNavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomBar"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_gravity="bottom"
+    android:background="@color/white">
+    <ImageButton
+        android:id="@+id/toHome"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="40dp"
+        android:background="@color/white"
+        android:onClick="go_home"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/home_"
+        android:layout_gravity="center|left"/>
+
+    <ImageButton
+        android:id="@+id/toBack"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/white"
+        android:onClick="back_view"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/back_"
+        android:layout_gravity="center|right"/>
+
+</com.google.android.material.bottomnavigation.BottomNavigationView>

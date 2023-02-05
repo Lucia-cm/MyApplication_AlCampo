@@ -2,9 +2,12 @@ package com.example.myapplication_alcampo.decoration;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -41,18 +44,18 @@ public class MainActivity_products_of_categories_decoration extends AppCompatAct
                 android.R.layout.simple_list_item_1, products_decoration);
         list.setAdapter(new Adapter_All_Products(this,R.layout.product,products_decoration){
 
-            /*public void onEntrada(Object entrada, View view) {
+            public void onEntrada(Object entrada, View view) {
                 cardView = (CardView) findViewById(R.id.one);
                 name = (TextView) findViewById(R.id.name_product);
 
-                cardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
+                 /*  cardView.setOnClickListener(new View.OnClickListener() {
+                  @Override
                     public void onClick(View v) {
-                        Toast.makeText(MainActivity_categories.this,
+                       Toast.makeText(MainActivity_products_of_categories_decoration.this,
                                 name.getText(), Toast.LENGTH_LONG);
                     }
-                });
-            }*/
+                });*/
+            }
         });
 
     }
