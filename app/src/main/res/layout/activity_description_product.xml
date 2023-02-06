@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity_description_product">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:id="@+id/parent_description"
@@ -13,109 +15,122 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="65dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
 
-    <ImageView
-        android:id="@+id/description_image"
-        android:layout_width="320dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:src="@drawable/snowflakes" />
+            android:layout_weight="0.5">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp">
-        <TextView
-            android:id="@+id/description_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre"
-            android:textColor="@color/black"
-            android:textSize="28dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/description_brand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Marca"
-            android:textColor="@color/grey"
-            android:textSize="24dp" />
-        <TextView
-            android:id="@+id/description_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:textColor="@color/black"
-            android:textSize="32dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:gravity="center">
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/description_buy"
-            android:layout_width="250dp"
-            android:layout_height="63dp"
-            android:gravity="center"
-            android:text="COMPRAR"
-            android:textColor="@color/white"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:background="@drawable/button_format"
-            />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/description_image"
+            android:layout_width="320dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/snowflakes" />
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="160dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="35dp"
             android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:layout_gravity="top"
-            android:orientation="vertical">
-
+            android:layout_marginRight="45dp">
             <TextView
+                android:id="@+id/description_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:text="Descripción"
+                android:text="Nombre"
                 android:textColor="@color/black"
-                android:textSize="22dp"
+                android:textSize="28dp"
                 android:textStyle="bold" />
-
-            <ScrollView
-                android:layout_width="285dp"
-                android:layout_height="100dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/description_description"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="........."
-                        android:textColor="@color/grey"
-                        android:textSize="20dp" />
-                </LinearLayout>
-            </ScrollView>
-
+            <TextView
+                android:id="@+id/description_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marca"
+                android:textColor="@color/grey"
+                android:textSize="24dp" />
+            <TextView
+                android:id="@+id/description_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="32dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="bottom">
-            <include layout="@layout/bottombar"/>
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/description_buy"
+                android:layout_width="250dp"
+                android:layout_height="63dp"
+                android:gravity="center"
+                android:text="COMPRAR"
+                android:textColor="@color/white"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:background="@drawable/button_format"
+                />
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:layout_gravity="top"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:text="Descripción"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <ScrollView
+                    android:layout_width="285dp"
+                    android:layout_height="100dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/description_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="........."
+                            android:textColor="@color/grey"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:translationZ="1dp"
+            android:layout_weight="4">
+
+            <include layout="@layout/bottombar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"/>
         </LinearLayout>
     </LinearLayout>
 

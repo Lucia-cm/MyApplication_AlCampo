@@ -24,7 +24,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="600dp">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <GridView
                 android:id="@+id/list_products"
@@ -36,7 +37,17 @@
                 android:verticalSpacing="30dp" />
         </LinearLayout>
 
-        <include layout="@layout/bottombar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="6">
+
+            <include layout="@layout/bottombar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"/>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
