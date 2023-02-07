@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name="MainActivity_description_product"
+            android:name=".MainActivity_home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,19 +21,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity_products_of_categories"/>
-        <activity android:name=".MainActivity_product02"/>
+        <activity android:name=".MainActivity_all_toys"/>
+        <activity android:name=".MainActivity_all_decoration"/>
+        <activity android:name=".MainActivity_all_playgames"/>
+        <activity android:name=".MainActivity_all_books"/>
+
         <activity android:name=".MainActivity_congratulations_final"/>
-
-        <activity android:name=".toys.MainActivity_products_of_categories_toys"/>
-        <activity android:name=".decoration.MainActivity_products_of_categories_decoration"/>
-        <activity android:name=".playgames.MainActivity_products_of_categories_playgames"/>
-        <activity android:name=".books.MainActivity_products_of_categories_books"/>
-
-        <activity android:name=".toys.MainActivity_description_product_toys"/>
-        <activity android:name=".decoration.MainActivity_description_product_decoration"/>
-        <activity android:name=".playgames.MainActivity_description_product_playgames"/>
-        <activity android:name=".books.MainActivity_description_product_book"/>
 
     </application>
 

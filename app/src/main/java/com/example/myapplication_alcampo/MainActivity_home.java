@@ -8,11 +8,6 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.example.myapplication_alcampo.books.MainActivity_products_of_categories_books;
-import com.example.myapplication_alcampo.decoration.MainActivity_products_of_categories_decoration;
-import com.example.myapplication_alcampo.playgames.MainActivity_products_of_categories_playgames;
-import com.example.myapplication_alcampo.toys.MainActivity_products_of_categories_toys;
-
 public class MainActivity_home extends AppCompatActivity {
     LinearLayout ll_toys;
     LinearLayout ll_decoration;
@@ -26,14 +21,10 @@ public class MainActivity_home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_home);
 
-        Intent intent_products_categories=new Intent(MainActivity_home.this, MainActivity_products_of_categories.class);
-        Intent intent_final=new Intent(MainActivity_home.this, MainActivity_congratulations_final.class);
-        Intent intent_description=new Intent(MainActivity_home.this, MainActivity_description_product.class);
-
-        Intent intent_all_toys=new Intent(MainActivity_home.this, MainActivity_products_of_categories_toys.class);
-        Intent intent_all_decoration=new Intent(MainActivity_home.this, MainActivity_products_of_categories_decoration.class);
-        Intent intent_all_playgames=new Intent(MainActivity_home.this, MainActivity_products_of_categories_playgames.class);
-        Intent intent_all_books=new Intent(MainActivity_home.this,MainActivity_products_of_categories_books.class);
+        Intent intent_all_toys=new Intent(MainActivity_home.this, MainActivity_all_toys.class);
+        Intent intent_all_decoration=new Intent(MainActivity_home.this, MainActivity_all_decoration.class);
+        Intent intent_all_playgames=new Intent(MainActivity_home.this, MainActivity_all_playgames.class);
+        Intent intent_all_books=new Intent(MainActivity_home.this, MainActivity_all_books.class);
 
         ll_toys=(LinearLayout) findViewById(R.id.option_toys);
         ll_decoration=(LinearLayout) findViewById(R.id.option_decoration);

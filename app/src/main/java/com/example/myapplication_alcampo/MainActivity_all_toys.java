@@ -1,33 +1,27 @@
-package com.example.myapplication_alcampo.toys;
+package com.example.myapplication_alcampo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.TextView;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
-import com.example.myapplication_alcampo.Adapter_All_Products;
-import com.example.myapplication_alcampo.MainActivity_product02;
-import com.example.myapplication_alcampo.Product;
-import com.example.myapplication_alcampo.R;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity_products_of_categories_toys extends AppCompatActivity {
-    CardView cardView;
-    TextView name_category;
+public class MainActivity_all_toys extends AppCompatActivity {
+    private RecyclerView reciclador;
+    private RecyclerView.Adapter adaptador;
+    private RecyclerView.LayoutManager gestor;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_product_of_category);
-        name_category=(TextView)findViewById(R.id.categoryTitle);
-        name_category.setText("Juguetes");
-
-        Intent new_intent=new Intent(MainActivity_products_of_categories_toys.this, MainActivity_product02.class);
-
-        GridView list=(GridView) findViewById(R.id.list_products);
+        setContentView(R.layout.prueba_all_products);
 
         ArrayList<Product>products_toys=new ArrayList<Product>();
         products_toys.add(new Product(11,R.drawable.beach_toy01,"Juguetes de playa","BeachToys","8,00",3.5f,"Nuestro juego de playa contiene 13 productos distintos.\\nSe incluye 1 cubo y la tapa del cubo, 1 pala, 1 regadera, 1 molde de castillo de arena, 2 juegos de herramientas para la arena, 6 moldes para arena de playa.\\nTodos los artículos están bien empaquetado en una bolsa resistente de PVC ideal para viajar fácilmente.\\nDimensiones del producto: 28 x 23 x 17 cm\\nPeso: 530 gramos\\n"));
@@ -39,11 +33,53 @@ public class MainActivity_products_of_categories_toys extends AppCompatActivity 
         products_toys.add(new Product(17,R.drawable.teddy01,"Doggy","Teddy's Mar","5,79",3f,"Hecho de algodón suave, no dañará la piel de los niños.\\nLa tela súper suave lo hace extra tierno y cómodo.\\nSe puede lavar a mano o a máquina, enjuagar lentamente.\\nNo secar en secadora, solo al aire natural."));
         products_toys.add(new Product(18,R.drawable.uno,"Uno","Uno's play","13,25",4.5f,"Juego de cartas\\nJuega con una sola persona o junta a un grupo de hasta 10 amigos y que empiece la fiesta. Juegues como juegues, encontraras divertidas y competitivas partidas.\\nPosee unas normas sencillas."));
 
-        ArrayAdapter<Product>adapter=new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, products_toys);
-        list.setAdapter(new Adapter_All_Products(this,R.layout.product,products_toys){
+        reciclador=(RecyclerView) findViewById(R.id.reciclador);
+        reciclador.setHasFixedSize(true);
+        //definir la salida de los datos en X columnas
+        int numberOfColumns = 2;
+        reciclador.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
 
+        adaptador=new Adaptador_prueba(products_toys);
+        reciclador.setAdapter(adaptador);
+
+        Intent go_description=new Intent(MainActivity_all_toys.this, MainActivity_description_one_product.class);
+
+        reciclador.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            GestureDetector gestureDetector=new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+            });
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                View hijo=rv.findChildViewUnder(e.getX(),e.getY());
+
+                if(hijo!=null && gestureDetector.onTouchEvent(e)){
+                    int position=rv.getChildAdapterPosition(hijo);
+
+                    go_description.putExtra("name",products_toys.get(position).getName());
+                    go_description.putExtra("brand",products_toys.get(position).getBrand());
+                    go_description.putExtra("price",products_toys.get(position).getPrice());
+                    go_description.putExtra("description",products_toys.get(position).getDescription());
+                    go_description.putExtra("image",String.valueOf(products_toys.get(position).getImage()));
+
+                    startActivity(go_description);
+                }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {}
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {}
         });
 
+
+
+
+
     }
+
 }

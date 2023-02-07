@@ -1,58 +1,27 @@
-package com.example.myapplication_alcampo.books;
+package com.example.myapplication_alcampo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
-import com.example.myapplication_alcampo.Adapter_All_Products;
-import com.example.myapplication_alcampo.MainActivity_home;
-import com.example.myapplication_alcampo.Product;
-import com.example.myapplication_alcampo.R;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity_products_of_categories_books extends AppCompatActivity {
-    CardView cardView;
-    TextView name_category;
-    Toolbar toolbar;
-    ImageButton auchan;
+public class MainActivity_all_books extends AppCompatActivity {
+    private RecyclerView reciclador;
+    private RecyclerView.Adapter adaptador;
+    private RecyclerView.LayoutManager gestor;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_product_of_category);
-
-        toolbar=(Toolbar)findViewById(R.id.toolbar);
-        auchan=(ImageButton)findViewById(R.id.imageButton);
-
-        name_category=(TextView)findViewById(R.id.categoryTitle);
-        name_category.setText("Libros");
-
-        Intent go_home=new Intent(MainActivity_products_of_categories_books.this, MainActivity_home.class);
-
-        auchan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(go_home);
-            }
-        });
-        /*setSupportActionBar(binding.toolbar);
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(go_home);
-            }
-        });*/
-
-
-
-        GridView list=(GridView) findViewById(R.id.list_products);
+        setContentView(R.layout.prueba_all_products);
 
         ArrayList<Product>products_books=new ArrayList<Product>();
         products_books.add(new Product(11,R.drawable.monk,"El monje que vendió su Ferrari","ROBIN SHARMA","17,00",4.5f,"El monje que vendió su Ferrari es una fábula espiritual que, desde hace más de quince años, ha marcado la vida de millones de personas en todo el mundo."));
@@ -64,40 +33,53 @@ public class MainActivity_products_of_categories_books extends AppCompatActivity
         products_books.add(new Product(17,R.drawable.wheel_time,"La rueda del tiempo: El ojo del Mundo","ROBERT JORDAN","18,95",5f,"La vida de Rand Al’Thor y sus amigos en Campo de Emond ha resultado bastante monótona hasta que una joven misteriosa llega al pueblo. Moraine, una maga capaz de encauzar el Poder Único, anuncia el despertar de una terrible amenaza."));
         products_books.add(new Product(18,R.drawable.encrypted,"La encrucijada mundial","PEDRO BAÑOS","20,80",4.5f,"Si en sus anteriores libros Pedro Baños ofrecía un lúcido análisis de las relaciones de poder, esta nueva obra no solo describe con detalle las excepcionales circunstancias que se están dando en el presente y las que padeceremos en el futuro inmediato en nuestro mundo hiperconectado, sino que va mucho más allá y propone soluciones que sirvan a todas las personas, en cualquier país, convirtiéndose en un manual práctico imprescindible. Las fórmulas del siglo pasado ya no son válidas. Hemos entrado de lleno en la era digital, una verdadera revolución industrial, económica y social cuyos efectos apenas empezamos a vislumbrar."));
 
-        ArrayAdapter<Product>adapter=new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, products_books);
-        list.setAdapter(new Adapter_All_Products(this,R.layout.product,products_books){
+        reciclador=(RecyclerView) findViewById(R.id.reciclador);
+        reciclador.setHasFixedSize(true);
+        //definir la salida de los datos en X columnas
+        int numberOfColumns = 2;
+        reciclador.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
 
+        adaptador=new Adaptador_prueba(products_books);
+        reciclador.setAdapter(adaptador);
+
+        Intent go_description=new Intent(MainActivity_all_books.this, MainActivity_description_one_product.class);
+
+        reciclador.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            GestureDetector gestureDetector=new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+            });
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                View hijo=rv.findChildViewUnder(e.getX(),e.getY());
+
+                if(hijo!=null && gestureDetector.onTouchEvent(e)){
+                    int position=rv.getChildAdapterPosition(hijo);
+
+                    go_description.putExtra("name",products_books.get(position).getName());
+                    go_description.putExtra("brand",products_books.get(position).getBrand());
+                    go_description.putExtra("price",products_books.get(position).getPrice());
+                    go_description.putExtra("description",products_books.get(position).getDescription());
+                    go_description.putExtra("image",String.valueOf(products_books.get(position).getImage()));
+
+                    startActivity(go_description);
+                }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {}
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {}
         });
 
 
 
-     /*   public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.go_home:
-                startActivity(go_home);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-
-}
-}*/
-
-
-
-
-
 
 
     }
+
 }
