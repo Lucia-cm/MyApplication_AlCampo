@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +18,18 @@ import java.util.ArrayList;
 public class MainActivity_all_playgames extends AppCompatActivity {
     private RecyclerView reciclador;
     private RecyclerView.Adapter adaptador;
-    private RecyclerView.LayoutManager gestor;
 
+    ImageButton house_home;
+    ImageButton auchan_home;
+    ImageButton return_view;
+
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.prueba_all_products);
+        setContentView(R.layout.activity_all_products);
+        title=(TextView)findViewById(R.id.categoryTitle);
+        title.setText("Videojuegos");
 
         ArrayList<Product>products_playgames=new ArrayList<Product>();
         products_playgames.add(new Product(31,R.drawable.pokemon01,"Pokémon X","Nintendo","45,95",4.3f,"Clasificado: No recomendada para menores de 7 años\\nLlega la aventura Pokémon más esperada: creada con un estilo visual 3D por primera vez y con numerosas novedades que enriquecen la forma de jugar. Pokémon X presenta una nueva generación de la licencia Pokémon. El juego incluye numerosos Pokémon totalmente nuevos, viejos conocidos y nuevas evoluciones de algunos de los más populares."));
@@ -39,7 +47,7 @@ public class MainActivity_all_playgames extends AppCompatActivity {
         int numberOfColumns = 2;
         reciclador.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
 
-        adaptador=new Adaptador_prueba(products_playgames);
+        adaptador=new Adapter_product(products_playgames);
         reciclador.setAdapter(adaptador);
 
         Intent go_description=new Intent(MainActivity_all_playgames.this, MainActivity_description_one_product.class);
@@ -76,10 +84,36 @@ public class MainActivity_all_playgames extends AppCompatActivity {
             public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {}
         });
 
+        house_home=(ImageButton) findViewById(R.id.toHome);
+        auchan_home=(ImageButton)findViewById(R.id.auchanButton);
+        return_view=(ImageButton)findViewById(R.id.toPrevious);
+        house_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        });
+        auchan_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        });
+        return_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goPrevious();
+            }
+        });
 
+    }
 
-
-
+    public void goHome(){
+        Intent goHome=new Intent(MainActivity_all_playgames.this,MainActivity_home.class);
+        startActivity(goHome);
+    }
+    public void goPrevious(){
+        onBackPressed();
     }
 
 }

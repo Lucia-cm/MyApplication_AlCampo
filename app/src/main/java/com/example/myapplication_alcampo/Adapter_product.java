@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class Adaptador_prueba extends RecyclerView.Adapter <Adaptador_prueba.MiHolder> {
+public class Adapter_product extends RecyclerView.Adapter <Adapter_product.MiHolder> {
     private List<Product> entradas;
 
-    public Adaptador_prueba(List<Product> entradas) {
+    public Adapter_product(List<Product> entradas) {
         this.entradas = entradas;
     }
 
@@ -42,7 +42,6 @@ public class Adaptador_prueba extends RecyclerView.Adapter <Adaptador_prueba.MiH
     public int getItemCount() {
         return entradas.size();
     }
-
 
     public static class MiHolder extends RecyclerView.ViewHolder{
         public ImageView imagen;

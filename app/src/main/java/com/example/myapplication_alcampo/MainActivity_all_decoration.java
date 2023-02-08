@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +18,18 @@ import java.util.ArrayList;
 public class MainActivity_all_decoration extends AppCompatActivity {
     private RecyclerView reciclador;
     private RecyclerView.Adapter adaptador;
-    private RecyclerView.LayoutManager gestor;
 
+    ImageButton house_home;
+    ImageButton auchan_home;
+    ImageButton return_view;
+
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.prueba_all_products);
+        setContentView(R.layout.activity_all_products);
+        title=(TextView)findViewById(R.id.categoryTitle);
+        title.setText("Decoración navideña");
 
         ArrayList<Product>products_decoration=new ArrayList<Product>();
         products_decoration.add(new Product(21,R.drawable.snowy_tree01,"Arbol de navidad nevado","HOMCOM","54,99",3.5f,"Este árbol artificial tiene la belleza de un abeto natural gracias a la combinación de ramas y bayas.\\nSu estructura y soporte metálico se pueden montar y desmontar fácilmente.\\nAltura: 150 cm.\\nLas 554 ramas y las 41 bayas dan un aspecto natural y original al árbol.\\nLas ramas se abren automáticamente para facilitar el montaje."));
@@ -39,7 +47,7 @@ public class MainActivity_all_decoration extends AppCompatActivity {
         int numberOfColumns = 2;
         reciclador.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
 
-        adaptador=new Adaptador_prueba(products_decoration);
+        adaptador=new Adapter_product(products_decoration);
         reciclador.setAdapter(adaptador);
 
         Intent go_description=new Intent(MainActivity_all_decoration.this, MainActivity_description_one_product.class);
@@ -76,10 +84,36 @@ public class MainActivity_all_decoration extends AppCompatActivity {
             public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {}
         });
 
+        house_home=(ImageButton) findViewById(R.id.toHome);
+        auchan_home=(ImageButton)findViewById(R.id.auchanButton);
+        return_view=(ImageButton)findViewById(R.id.toPrevious);
+        house_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        });
+        auchan_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        });
+        return_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goPrevious();
+            }
+        });
 
+    }
 
-
-
+    public void goHome(){
+        Intent goHome=new Intent(MainActivity_all_decoration.this,MainActivity_home.class);
+        startActivity(goHome);
+    }
+    public void goPrevious(){
+        onBackPressed();
     }
 
 }

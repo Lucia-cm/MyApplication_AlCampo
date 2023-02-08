@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 public class MainActivity_home extends AppCompatActivity {
     LinearLayout ll_toys;
@@ -14,8 +13,6 @@ public class MainActivity_home extends AppCompatActivity {
     LinearLayout ll_playgames;
     LinearLayout ll_books;
 
-    CardView cv_playgames;
-    CardView cv_books;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +55,6 @@ public class MainActivity_home extends AppCompatActivity {
                 startActivity(intent_all_books);
             }
         });
-
 
     }
 }

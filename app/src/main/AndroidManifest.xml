@@ -26,6 +26,7 @@
         <activity android:name=".MainActivity_all_playgames"/>
         <activity android:name=".MainActivity_all_books"/>
 
+        <activity android:name=".MainActivity_description_one_product"/>
         <activity android:name=".MainActivity_congratulations_final"/>
 
     </application>

@@ -21,12 +21,12 @@
             <ImageButton
                 android:layout_marginRight="20dp"
                 android:layout_gravity="right"
-                android:id="@+id/imageButton"
+                android:id="@+id/auchanButton"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@color/white"
                 android:scaleType="fitCenter"
-                android:onClick="go_home"
+                android:onClick="goHome"
                 app:srcCompat="@drawable/auchan" />
         </androidx.appcompat.widget.Toolbar>
 

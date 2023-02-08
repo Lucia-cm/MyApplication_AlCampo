@@ -12,18 +12,18 @@
         android:layout_height="40dp"
         android:layout_marginLeft="40dp"
         android:background="@color/white"
-        android:onClick="go_home"
+        android:onClick="goHome"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/home_"
         android:layout_gravity="center|left"/>
 
     <ImageButton
-        android:id="@+id/toBack"
+        android:id="@+id/toPrevious"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginRight="40dp"
         android:background="@color/white"
-        android:onClick="back_view"
+        android:onClick="goPrevious"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/back_"
         android:layout_gravity="center|right"/>

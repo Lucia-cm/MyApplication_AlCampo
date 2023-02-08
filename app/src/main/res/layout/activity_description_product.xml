@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".playgames.MainActivity_description_product_playgames">
+    android:layout_height="match_parent">
 
     <include layout="@layout/toolbar"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/snowflakes"
+            android:scaleType="centerCrop"/>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="65dp">
+        android:layout_marginTop="75dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,8 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
                 android:gravity="center">
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/description_buy"
@@ -85,7 +92,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Descripción"
                     android:textColor="@color/black"
                     android:textSize="22dp"
@@ -93,7 +100,7 @@
 
                 <ScrollView
                     android:layout_width="285dp"
-                    android:layout_height="130dp">
+                    android:layout_height="150dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -126,6 +133,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

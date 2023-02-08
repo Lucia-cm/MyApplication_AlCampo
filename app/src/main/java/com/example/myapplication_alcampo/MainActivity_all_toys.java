@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +18,18 @@ import java.util.ArrayList;
 public class MainActivity_all_toys extends AppCompatActivity {
     private RecyclerView reciclador;
     private RecyclerView.Adapter adaptador;
-    private RecyclerView.LayoutManager gestor;
 
+    ImageButton house_home;
+    ImageButton auchan_home;
+    ImageButton return_view;
+
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.prueba_all_products);
+        setContentView(R.layout.activity_all_products);
+        title=(TextView)findViewById(R.id.categoryTitle);
+        title.setText("Juguetes");
 
         ArrayList<Product>products_toys=new ArrayList<Product>();
         products_toys.add(new Product(11,R.drawable.beach_toy01,"Juguetes de playa","BeachToys","8,00",3.5f,"Nuestro juego de playa contiene 13 productos distintos.\\nSe incluye 1 cubo y la tapa del cubo, 1 pala, 1 regadera, 1 molde de castillo de arena, 2 juegos de herramientas para la arena, 6 moldes para arena de playa.\\nTodos los artículos están bien empaquetado en una bolsa resistente de PVC ideal para viajar fácilmente.\\nDimensiones del producto: 28 x 23 x 17 cm\\nPeso: 530 gramos\\n"));
@@ -39,7 +47,7 @@ public class MainActivity_all_toys extends AppCompatActivity {
         int numberOfColumns = 2;
         reciclador.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
 
-        adaptador=new Adaptador_prueba(products_toys);
+        adaptador=new Adapter_product(products_toys);
         reciclador.setAdapter(adaptador);
 
         Intent go_description=new Intent(MainActivity_all_toys.this, MainActivity_description_one_product.class);
@@ -76,10 +84,36 @@ public class MainActivity_all_toys extends AppCompatActivity {
             public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {}
         });
 
+        house_home=(ImageButton) findViewById(R.id.toHome);
+        auchan_home=(ImageButton)findViewById(R.id.auchanButton);
+        return_view=(ImageButton)findViewById(R.id.toPrevious);
+        house_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        });
+        auchan_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        });
+        return_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goPrevious();
+            }
+        });
 
+    }
 
-
-
+    public void goHome(){
+        Intent goHome=new Intent(MainActivity_all_toys.this,MainActivity_home.class);
+        startActivity(goHome);
+    }
+    public void goPrevious(){
+        onBackPressed();
     }
 
 }
